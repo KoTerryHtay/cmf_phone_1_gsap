@@ -43,14 +43,14 @@ export default function Phone() {
         x: 0,
         opacity: 1,
         duration: 1,
-        stagger: 0.1, // stagger between each different words of 0.02
+        stagger: 0.1, // stagger between each different words of 0.01
         ease: "power1.in",
       }
     );
   }, []);
 
   return (
-    <section className="relative">
+    <section className="relative container">
       <video
         className="w-full"
         ref={videoRef}
@@ -62,7 +62,10 @@ export default function Phone() {
         // loop
       />
       {/* <div className="absolute top-1/3 right-1/6 h-full"> */}
-      <div id="content" className="absolute top-1/3 right-[14%] h-full">
+      <div
+        id="content"
+        className="absolute top-1/3 right-[14%] h-full hidden lg:block"
+      >
         <h1 className="font-ndot-47 text-xl font-semibold mb-6 lowercase">
           CMF Phone 1
         </h1>
