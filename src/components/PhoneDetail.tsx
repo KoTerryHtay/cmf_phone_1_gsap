@@ -39,7 +39,7 @@ export default function PhoneDetail() {
   return (
     <div
       id="bg-color"
-      className="container h-screen px-20 flex flex-col items-center relative"
+      className="w-full h-screen px-20 flex flex-col items-center relative"
     >
       <div>
         <img

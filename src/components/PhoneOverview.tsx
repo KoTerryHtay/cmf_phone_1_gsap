@@ -73,7 +73,7 @@ export default function PhoneOverview() {
   }, []);
 
   return (
-    <section className="relative container">
+    <section className="relative w-full">
       <video
         id="overview-video"
         className="w-full"

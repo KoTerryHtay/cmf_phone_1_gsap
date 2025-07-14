@@ -50,7 +50,8 @@ export default function Phone() {
   }, []);
 
   return (
-    <section className="relative container">
+    // <div className="w-full">
+    <section className="relative w-full">
       <video
         className="w-full"
         ref={videoRef}
@@ -91,5 +92,6 @@ export default function Phone() {
         </div>
       </div>
     </section>
+    // </div>
   );
 }

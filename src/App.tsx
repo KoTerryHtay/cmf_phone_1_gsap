@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 export default function App() {
   return (
-    <main className="container bg-[#ffffffcc]">
+    <main className="w-full bg-[#ffffffcc]">
       <Hero />
       <Phone />
       <PhoneOverview />
