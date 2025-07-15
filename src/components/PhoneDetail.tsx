@@ -2,6 +2,7 @@ import { useGSAP } from "@gsap/react";
 import clsx from "clsx";
 import gsap from "gsap";
 import { useState } from "react";
+import { cmfTimeline } from "../cmfTimeline";
 
 // const colors = ["#DB4E30", "#ADC3BB", "#B9CCC6", "#1F1F23"];
 
@@ -10,6 +11,14 @@ const colors = ["#DB4E30", "#1F1F23", "#ADC3BB"];
 
 export default function PhoneDetail() {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  useGSAP(() => {
+    cmfTimeline({
+      trigger: "#bg-color",
+      start: "start 85%",
+      // markers: true,
+    }).to("#cmf-logo", { x: -300 });
+  }, []);
 
   useGSAP(() => {
     gsap.fromTo(
@@ -23,32 +32,19 @@ export default function PhoneDetail() {
       duration: 1.5,
       ease: "power1.inOut",
     });
-    // gsap.fromTo(
-    //   "#bg-color",
-    //   {
-    //     backgroundColor: colors[prevIndex],
-    //   },
-    //   {
-    //     backgroundColor: colors[currentIndex],
-    //     duration: 1.5,
-    //     ease: "power1.inOut",
-    //   }
-    // );
   }, [currentIndex]);
 
   return (
-    <div
+    <section
       id="bg-color"
       className="w-full h-screen px-20 flex flex-col items-center relative"
     >
-      <div>
-        <img
-          className="w-[500px] h-fit"
-          id="phone-color"
-          src={`/images/${images[currentIndex]}.webp`}
-          alt="phone"
-        />
-      </div>
+      <img
+        className="w-[500px] h-fit"
+        id="phone-color"
+        src={`/images/${images[currentIndex]}.webp`}
+        alt="phone"
+      />
 
       <div className="absolute top-1/2 translate-y-20 space-x-4">
         <button
@@ -86,6 +82,6 @@ export default function PhoneDetail() {
           )}
         />
       </div>
-    </div>
+    </section>
   );
 }

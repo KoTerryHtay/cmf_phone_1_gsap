@@ -4,6 +4,7 @@ import { useRef } from "react";
 import BatteryIcon from "./svg/BatteryIcon";
 import RamIcon from "./svg/RamIcon";
 import CameraIcon from "./svg/CameraIcon";
+import { cmfTimeline } from "../cmfTimeline";
 
 export default function Phone() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -16,6 +17,11 @@ export default function Phone() {
         end: "bottom top",
         scrub: true,
       },
+    });
+
+    cmfTimeline({ trigger: "#phone" }).to("#cmf-logo", {
+      x: -400,
+      scale: 0.5,
     });
 
     videoRef.current!.onloadedmetadata = () => {
@@ -50,8 +56,7 @@ export default function Phone() {
   }, []);
 
   return (
-    // <div className="w-full">
-    <section className="relative w-full">
+    <section id="phone" className="relative w-full">
       <video
         className="w-full"
         ref={videoRef}
@@ -92,6 +97,5 @@ export default function Phone() {
         </div>
       </div>
     </section>
-    // </div>
   );
 }

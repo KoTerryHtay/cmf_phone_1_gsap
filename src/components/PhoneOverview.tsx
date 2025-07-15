@@ -9,6 +9,7 @@ import ProcessorIcon from "./svg/ProcessorIcon";
 import OsIcon from "./svg/OsIcon";
 import WaterIcon from "./svg/WaterIcon";
 import RamIcon from "./svg/RamIcon";
+import { cmfTimeline } from "../cmfTimeline";
 
 export default function PhoneOverview() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -20,7 +21,6 @@ export default function PhoneOverview() {
         start: "top 95%",
         end: "bottom top",
         scrub: true,
-        // pin: true,
       },
     });
 
@@ -35,7 +35,7 @@ export default function PhoneOverview() {
         trigger: "#overview-video",
         start: "5% top",
         end: "50% bottom",
-        // pin: true,
+
         scrub: 1, // animation progress will follow the scroll but with some delay
       },
     });
@@ -51,7 +51,7 @@ export default function PhoneOverview() {
           x: 0,
           opacity: 1,
           duration: 1,
-          stagger: 0.1, // stagger between each different words of 0.01
+          stagger: 0.1,
           ease: "power1.in",
         }
       )
@@ -70,10 +70,18 @@ export default function PhoneOverview() {
         },
         "-=1"
       );
+
+    cmfTimeline({
+      trigger: "#phone-overview",
+      end: "70% 50%",
+      // markers: true,
+    }).to("#cmf-logo", {
+      x: 50,
+    });
   }, []);
 
   return (
-    <section className="relative w-full">
+    <section id="phone-overview" className="relative w-full">
       <video
         id="overview-video"
         className="w-full"
@@ -85,9 +93,8 @@ export default function PhoneOverview() {
         // autoPlay
         // loop
       />
-      {/* <div className="absolute top-1/3 right-1/6 h-full"> */}
 
-      {/* text 1 */}
+      {/* left */}
       <div
         id="overview-text-1"
         className="absolute top-1/3 left-[14%] h-full hidden lg:block"
@@ -118,7 +125,7 @@ export default function PhoneOverview() {
         </div>
       </div>
 
-      {/* text 2 */}
+      {/* right */}
       <div
         id="overview-text-2"
         className="absolute top-1/3 right-[9%] h-full hidden lg:block"
